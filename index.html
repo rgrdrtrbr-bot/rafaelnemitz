@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rafael Nemitz | Blog, Jornalismo & Mídia Kit Regional</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        journal: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            amber: '#d97706',
+                            crimson: '#dc2626',
+                            blue: '#0284c7'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .dark .glass-card {
+            background: rgba(15, 23, 42, 0.92);
+            border: 1px solid rgba(51, 65, 85, 0.6);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #1e1b4b 100%);
+        }
+        .carousel-slide {
+            transition: opacity 0.7s ease-in-out;
+        }
+        /* Crisp & Subtle Overlay (Keeps photos bright & clear) */
+        .image-overlay-subtle {
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.75) 100%);
+        }
+        .image-overlay-side {
+            background: linear-gradient(90deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.65) 50%, rgba(15, 23, 42, 0.1) 100%);
+        }
+        .text-glow {
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans transition-colors duration-300 dark:bg-slate-900 dark:text-slate-100 selection:bg-amber-500 selection:text-white">
+
+    <!-- TOP HEADER WITH OFFICIAL SOCIAL LINKS & DIRECT CONTACT -->
+    <div class="bg-slate-950 text-slate-300 text-xs py-2.5 px-4 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+            
+            <div class="flex items-center gap-3">
+                <span class="bg-red-600 text-white font-extrabold px-2.5 py-0.5 rounded text-[10px] tracking-wider uppercase animate-pulse">
+                    <i class="fa-solid fa-circle text-[8px] mr-1"></i> NOTÍCIAS EM TEMPO REAL
+                </span>
+                <span class="truncate max-w-xl font-medium text-slate-300 hidden sm:inline">
+                    Santiago & Região Central - RS | Fale com a Redação: (55) 99634-0222
+                </span>
+            </div>
+
+            <!-- Requested Social Links -->
+            <div class="flex items-center space-x-5 text-slate-300 font-medium">
+                <a href="https://www.facebook.com/BlogRafaelNemitz" target="_blank" class="hover:text-amber-400 transition-colors flex items-center gap-1.5" title="Facebook Blog Rafael Nemitz">
+                    <i class="fa-brands fa-facebook text-sm text-blue-500"></i> <span class="hidden sm:inline">Facebook</span>
+                </a>
+                <a href="https://www.instagram.com/rafaelnemitz" target="_blank" class="hover:text-amber-400 transition-colors flex items-center gap-1.5" title="Instagram Rafael Nemitz">
+                    <i class="fa-brands fa-instagram text-sm text-pink-500"></i> <span class="hidden sm:inline">Instagram</span>
+                </a>
+                <a href="https://www.youtube.com/user/rafanemitz" target="_blank" class="hover:text-amber-400 transition-colors flex items-center gap-1.5" title="YouTube Rafael Nemitz">
+                    <i class="fa-brands fa-youtube text-sm text-red-500"></i> <span class="hidden sm:inline">YouTube</span>
+                </a>
+                <a href="https://www.youtube.com/user/rafanemitz" target="_blank" class="hover:text-amber-400 transition-colors flex items-center gap-1.5" title="X (Twitter)">
+                    <i class="fa-brands fa-x-twitter text-sm text-slate-200"></i> <span class="hidden sm:inline">X</span>
+                </a>
+                <span class="text-slate-700">|</span>
+                <a href="#localizacao" class="hover:text-amber-400 transition-colors font-bold text-amber-400 flex items-center gap-1">
+                    <i class="fa-solid fa-envelope text-xs"></i> Contato
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- MAIN NAVIGATION HEADER -->
+    <header class="sticky top-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Brand Logo & Badge -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="bg-white p-1.5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-md group-hover:scale-105 transition-transform flex items-center justify-center">
+                        <img src="logonemitz.jpg" alt="Logo Oficial Rafael Nemitz Eventos e Mídia" class="h-11 sm:h-13 w-auto object-contain">
+                    </div>
+                    <div>
+                        <span class="font-serif text-lg sm:text-xl font-black tracking-tight text-slate-900 dark:text-white block leading-none">
+                            BLOG <span class="text-amber-600 dark:text-amber-400">RAFAEL NEMITZ</span>
+                        </span>
+                        <span class="text-[10px] tracking-widest text-slate-500 dark:text-slate-400 uppercase font-bold block mt-1">
+                            Informação em Primeira Mão • Santiago - RS
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <nav class="hidden xl:flex items-center space-x-5 text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
+                    <a href="#destaques" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">Destaques</a>
+                    <a href="#sobre" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">Sobre</a>
+                    <a href="#colunistas" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">Colunistas</a>
+                    <a href="#galeria-fotos" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">Galeria de Fotos</a>
+                    <a href="#servicos" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">Mídia Kit</a>
+                    <a href="#utilitarios" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">Utilidades</a>
+                    <a href="#localizacao" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors bg-amber-500/10 px-3 py-1.5 rounded-lg border border-amber-500/30 text-amber-600 dark:text-amber-400">Contato</a>
+                </nav>
+
+                <!-- Actions -->
+                <div class="flex items-center gap-3">
+                    <button id="themeToggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" title="Alternar Tema">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:block text-amber-400"></i>
+                    </button>
+
+                    <a href="https://wa.me/5555996340222?text=Ol%C3%A1%2C%20Rafael!%20Gostaria%20de%20anunciar%20no%20Blog." target="_blank" class="hidden sm:inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl font-bold text-xs shadow-md transition-all hover:scale-105 uppercase tracking-wider">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        <span>Anuncie Conosco</span>
+                    </a>
+
+                    <button id="mobileMenuBtn" class="xl:hidden p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobileMenu" class="hidden xl:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-6 py-6 space-y-3 text-sm font-bold uppercase">
+            <a href="#destaques" class="mobile-nav-link block py-2 border-b border-slate-100 dark:border-slate-800">Destaques</a>
+            <a href="#sobre" class="mobile-nav-link block py-2 border-b border-slate-100 dark:border-slate-800">Sobre Rafael Nemitz</a>
+            <a href="#colunistas" class="mobile-nav-link block py-2 border-b border-slate-100 dark:border-slate-800">Colunistas Parceiros</a>
+            <a href="#galeria-fotos" class="mobile-nav-link block py-2 border-b border-slate-100 dark:border-slate-800">Galeria de Fotos</a>
+            <a href="#servicos" class="mobile-nav-link block py-2 border-b border-slate-100 dark:border-slate-800">Mídia Kit & Serviços</a>
+            <a href="#utilitarios" class="mobile-nav-link block py-2 border-b border-slate-100 dark:border-slate-800">Animais, Falecimentos & Classificados</a>
+            <a href="#localizacao" class="mobile-nav-link block py-2 border-b border-slate-100 dark:border-slate-800 text-amber-500">Contato & Pauta</a>
+            <a href="https://wa.me/5555996340222" target="_blank" class="w-full flex items-center justify-center gap-2 bg-emerald-600 text-white py-3 rounded-xl font-bold mt-2">
+                <i class="fa-brands fa-whatsapp text-lg"></i> Falar no WhatsApp (55) 99634-0222
+            </a>
+        </div>
+    </header>
+
+    <!-- BRIGHT & CRISP OFFICIAL BANNER HEADER SHOWCASE -->
+    <section class="bg-slate-900 py-3 sm:py-5 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="rounded-2xl overflow-hidden shadow-2xl border-2 border-amber-500/30 bg-white relative group w-full h-48 sm:h-60 md:h-72">
+                <!-- High Vibrancy, Sharp Image Filter filling the full container -->
+                <img src="nemitz4.jpg" alt="Banner Oficial Blog Rafael Nemitz - Mais de 100 mil seguidores" class="w-full h-full object-cover object-center filter brightness-105 contrast-105 hover:scale-[1.01] transition-transform duration-500">
+            </div>
+        </div>
+    </section>
+
+    <!-- HERO SECTION WITH CRISP, HIGH-QUALITY REAL PHOTO & METRICS -->
+    <section class="hero-gradient text-white relative overflow-hidden py-14 lg:py-18 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-10 items-center">
+                
+                <!-- Left Column -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 text-xs font-bold uppercase tracking-wider shadow-sm">
+                        <i class="fa-solid fa-star"></i>
+                        <span>16 Anos de História e Tradição Digital</span>
+                    </div>
+
+                    <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-black leading-tight tracking-tight text-white">
+                        A Informação que Move Santiago e a <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-yellow-200">Região Central do RS</span>.
+                    </h1>
+
+                    <p class="text-slate-200 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
+                        Jornalismo independente, cobertura policial rápida, utilidade pública e eventos de destaque. A plataforma com maior engajamento e credibilidade para promover sua marca.
+                    </p>
+
+                    <!-- Stats Bar -->
+                    <div class="grid grid-cols-3 gap-3 py-4 max-w-lg mx-auto lg:mx-0 border-y border-slate-700/80">
+                        <div>
+                            <span class="text-2xl sm:text-3xl font-extrabold text-white block font-serif">+100k</span>
+                            <span class="text-[11px] text-slate-300 uppercase font-semibold">Seguidores Ativos</span>
+                        </div>
+                        <div class="border-x border-slate-700/80">
+                            <span class="text-2xl sm:text-3xl font-extrabold text-amber-400 block font-serif">16 Anos</span>
+                            <span class="text-[11px] text-slate-300 uppercase font-semibold">Fundação do Blog</span>
+                        </div>
+                        <div>
+                            <span class="text-2xl sm:text-3xl font-extrabold text-white block font-serif">1ª Mão</span>
+                            <span class="text-[11px] text-slate-300 uppercase font-semibold">Notícia em Tempo Real</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="https://wa.me/5555996340222?text=Ol%C3%A1%2C%20Rafael!%20Quero%20anunciar%20minha%20empresa%20no%20Blog." target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-black px-8 py-4 rounded-xl shadow-xl shadow-emerald-500/25 transition-all hover:scale-105 text-sm uppercase tracking-wider">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                            <span>Anunciar no Blog Nemitz</span>
+                        </a>
+                        <a href="#localizacao" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-100 border border-slate-600 font-bold px-6 py-4 rounded-xl text-sm transition-all shadow-md">
+                            <i class="fa-solid fa-paper-plane text-xs text-amber-400"></i>
+                            <span>Enviar Notícia ou Pauta</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column Photo Frame (Full Cover Frame) -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-2xl blur-lg opacity-40 animate-pulse"></div>
+                        
+                        <div class="relative rounded-2xl overflow-hidden bg-slate-900 border-2 border-amber-400/50 shadow-2xl group h-80 sm:h-96 w-full">
+                            <!-- Crisp, Bright Image spanning full height and width -->
+                            <img src="cerimonial2.jpg" alt="Rafael Nemitz em Evento de Cerimonial em Santiago" class="w-full h-full object-cover object-top filter brightness-105 contrast-105 group-hover:scale-105 transition-transform duration-700">
+                            
+                            <!-- Subtle bottom gradient -->
+                            <div class="absolute inset-0 image-overlay-subtle"></div>
+                            
+                            <div class="absolute bottom-4 left-4 right-4 text-white">
+                                <span class="bg-amber-500 text-slate-950 text-[10px] font-black uppercase px-2.5 py-1 rounded tracking-wider mb-1.5 inline-block shadow">
+                                    Voz da Comunidade
+                                </span>
+                                <h3 class="font-serif text-lg font-bold text-white text-glow">Rafael S. Nemitz</h3>
+                                <p class="text-xs text-slate-200 text-glow">Jornalista, apresentador de eventos e comunicador em Santiago - RS</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- DYNAMIC CAROUSEL BANNER SECTION -->
+    <section id="destaques" class="py-16 bg-slate-100 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
+                <div>
+                    <span class="text-amber-600 dark:text-amber-400 text-xs font-extrabold uppercase tracking-widest block mb-1">
+                        Vitrine de Soluções
+                    </span>
+                    <h2 class="font-serif text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">
+                        O Que Oferecemos para Sua Marca
+                    </h2>
+                </div>
+                <!-- Controls -->
+                <div class="flex items-center gap-2 mt-4 md:mt-0">
+                    <button id="carouselPrev" class="p-3 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:bg-amber-500 hover:text-white transition-colors shadow-sm">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button id="carouselNext" class="p-3 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:bg-amber-500 hover:text-white transition-colors shadow-sm">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Slider Wrapper -->
+            <div class="relative overflow-hidden rounded-2xl shadow-2xl bg-slate-950 border border-slate-800">
+                <div id="carouselContainer" class="relative min-h-[400px] sm:min-h-[340px] flex items-center">
+                    
+                    <!-- Slide 1 -->
+                    <div class="carousel-slide absolute inset-0 w-full h-full p-8 sm:p-12 flex flex-col justify-between opacity-100 z-10 overflow-hidden">
+                        <img src="nemitz3.jpg" alt="Banners no Portal Web" class="absolute inset-0 w-full h-full object-cover filter brightness-90 contrast-105">
+                        <div class="absolute inset-0 image-overlay-side"></div>
+
+                        <div class="relative z-10 max-w-2xl space-y-3">
+                            <span class="bg-amber-500 text-slate-950 text-xs font-black uppercase px-3 py-1 rounded tracking-wider inline-block shadow">
+                                Destaque #1 - Anúncios no Portal
+                            </span>
+                            <h3 class="font-serif text-2xl sm:text-4xl font-bold text-white leading-tight text-glow">
+                                Banners Fixo no Topo e Matérias do Blog
+                            </h3>
+                            <p class="text-slate-200 text-sm sm:text-base text-glow">
+                                Exposição contínua para milhares de leitores diários de Santiago, Santa Maria e cidades da Região Central.
+                            </p>
+                        </div>
+                        <div class="relative z-10 pt-4 flex flex-wrap items-center gap-4">
+                            <a href="#servico-banner" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-6 py-3 rounded-xl text-xs uppercase tracking-wider transition-all shadow-md">
+                                Ver Opções de Banners
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="carousel-slide absolute inset-0 w-full h-full p-8 sm:p-12 flex flex-col justify-between opacity-0 pointer-events-none z-0 overflow-hidden">
+                        <img src="cerimonial2.jpg" alt="Cobertura de Eventos" class="absolute inset-0 w-full h-full object-cover object-top filter brightness-90 contrast-105">
+                        <div class="absolute inset-0 image-overlay-side"></div>
+
+                        <div class="relative z-10 max-w-2xl space-y-3">
+                            <span class="bg-indigo-500 text-white text-xs font-black uppercase px-3 py-1 rounded tracking-wider inline-block shadow">
+                                Destaque #2 - Presença VIP
+                            </span>
+                            <h3 class="font-serif text-2xl sm:text-4xl font-bold text-white leading-tight text-glow">
+                                Coberturas de Eventos, Cerimonial e Inaugurações
+                            </h3>
+                            <p class="text-slate-200 text-sm sm:text-base text-glow">
+                                Presença do comunicador Rafael Nemitz apresentando seu evento com foto, vídeo e transmissão ao vivo.
+                            </p>
+                        </div>
+                        <div class="relative z-10 pt-4 flex flex-wrap items-center gap-4">
+                            <a href="#servico-cobertura" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold px-6 py-3 rounded-xl text-xs uppercase tracking-wider transition-all shadow-md">
+                                Agendar Cerimonial ou Evento
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="carousel-slide absolute inset-0 w-full h-full p-8 sm:p-12 flex flex-col justify-between opacity-0 pointer-events-none z-0 overflow-hidden">
+                        <img src="nemitz4.jpg" alt="Redes Sociais Nemitz" class="absolute inset-0 w-full h-full object-cover filter brightness-90 contrast-105">
+                        <div class="absolute inset-0 image-overlay-side"></div>
+
+                        <div class="relative z-10 max-w-2xl space-y-3">
+                            <span class="bg-emerald-500 text-slate-950 text-xs font-black uppercase px-3 py-1 rounded tracking-wider inline-block shadow">
+                                Destaque #3 - Redes Sociais
+                            </span>
+                            <h3 class="font-serif text-2xl sm:text-4xl font-bold text-white leading-tight text-glow">
+                                Divulgação para +100 Mil Seguidores
+                            </h3>
+                            <p class="text-slate-200 text-sm sm:text-base text-glow">
+                                Publicações no Instagram, Facebook, YouTube e X com engajamento de leitores reais da região.
+                            </p>
+                        </div>
+                        <div class="relative z-10 pt-4 flex flex-wrap items-center gap-4">
+                            <a href="#servico-redes" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold px-6 py-3 rounded-xl text-xs uppercase tracking-wider transition-all shadow-md">
+                                Conhecer Combos de Redes
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Indicators -->
+                <div class="absolute bottom-4 right-8 flex items-center space-x-2 z-20">
+                    <button class="carousel-dot w-3 h-3 rounded-full bg-amber-500 transition-all" data-slide="0"></button>
+                    <button class="carousel-dot w-3 h-3 rounded-full bg-slate-600 transition-all" data-slide="1"></button>
+                    <button class="carousel-dot w-3 h-3 rounded-full bg-slate-600 transition-all" data-slide="2"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION WITH REAL PHOTOS AND OFFICIAL BRANDING -->
+    <section id="sobre" class="py-20 bg-white dark:bg-slate-900 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Visual Cards -->
+                <div class="lg:col-span-5 space-y-4">
+                    <div class="rounded-2xl overflow-hidden bg-slate-900 border-2 border-slate-200 dark:border-slate-800 shadow-xl relative">
+                        <img src="nemitz3.jpg" alt="Rafael Nemitz Apresentador" class="w-full h-80 object-cover object-top filter brightness-105 contrast-105">
+                        <div class="p-6 bg-slate-950 border-t border-slate-800">
+                            <h3 class="font-serif text-xl font-bold text-white">Rafael S. Nemitz</h3>
+                            <p class="text-xs text-amber-400 font-semibold mt-1">Jornalista & Fundador do Blog</p>
+                            <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                                Comunicador respeitado por sua agilidade e precisão nas coberturas jornalísticas de Santiago e região.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Official Contact Card Graphic -->
+                    <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-md">
+                        <img src="nemitz1.jpg" alt="Blog Rafael Nemitz Informação em Primeira Mão" class="w-full h-auto filter brightness-105">
+                    </div>
+                </div>
+
+                <!-- Right Text Content -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-500/10 text-amber-600 dark:text-amber-400 text-xs font-extrabold uppercase tracking-wider">
+                        16 Anos de História no RS
+                    </div>
+
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white leading-tight">
+                        A Marca de Comunicação Mais Lembrada de Santiago e Região
+                    </h2>
+
+                    <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+                        Fundado há 16 anos pelo comunicador <strong>Rafael Nemitz</strong>, o portal consolidou-se como a principal fonte de notícias em primeira mão para os moradores da Região Central do Rio Grande do Sul.
+                    </p>
+
+                    <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+                        Atuando na cobertura diária de assuntos policiais, política, eventos festivos, economia e utilidade pública, o Blog do Nemitz conecta a população com a verdade de forma ágil, transparente e imparcial.
+                    </p>
+
+                    <!-- Features Grid -->
+                    <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-800">
+                            <h4 class="font-bold text-slate-900 dark:text-white text-sm">
+                                <i class="fa-solid fa-bullhorn text-amber-500 mr-2"></i>Voz Forte na Região
+                            </h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Liderança de engajamento no Facebook e Instagram.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-800">
+                            <h4 class="font-bold text-slate-900 dark:text-white text-sm">
+                                <i class="fa-solid fa-microphone text-amber-500 mr-2"></i>Apresentação & Cerimonial
+                            </h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Condução de solenidades e eventos corporativos.</p>
+                        </div>
+                    </div>
+
+                    <div class="pt-2">
+                        <a href="https://wa.me/5555996340222" target="_blank" class="inline-flex items-center gap-2 bg-slate-900 dark:bg-slate-800 text-white font-bold px-6 py-3 rounded-xl text-xs uppercase tracking-wider hover:bg-amber-500 hover:text-slate-950 transition-colors shadow-md">
+                            <i class="fa-brands fa-whatsapp text-sm"></i> Falar com Rafael Nemitz: (55) 99634-0222
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: COLUNISTAS / SPECIALIST COLUMNISTS -->
+    <section id="colunistas" class="py-20 bg-slate-100 dark:bg-slate-950 transition-colors border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-amber-600 dark:text-amber-400 text-xs font-extrabold uppercase tracking-widest block mb-2">
+                    Opinião & Análise Especializada
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-3">
+                    Nossos Colunistas Convidados
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400 text-sm">
+                    Espaço reservado para especialistas, advogados, médicos, educadores e líderes comunitários debatendo temas atuais.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Columnist 1 -->
+                <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-amber-500/50 transition-all group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="Dra. Juliana Mendes" class="w-14 h-14 rounded-full object-cover border-2 border-amber-500">
+                        <div>
+                            <h4 class="font-bold text-slate-900 dark:text-white text-base">Dra. Juliana Mendes</h4>
+                            <span class="text-xs text-amber-600 dark:text-amber-400 font-semibold block">Direito & Cidadania</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 italic mb-4 leading-relaxed">
+                        "Direitos do Consumidor e os cuidados necessários nas compras online e comércio local de Santiago."
+                    </p>
+                    <a href="#localizacao" class="text-xs font-bold text-slate-900 dark:text-white group-hover:text-amber-500 transition-colors flex items-center gap-1">
+                        <span>Ler Artigos da Coluna</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Columnist 2 -->
+                <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-amber-500/50 transition-all group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="Dr. Roberto Camargo" class="w-14 h-14 rounded-full object-cover border-2 border-amber-500">
+                        <div>
+                            <h4 class="font-bold text-slate-900 dark:text-white text-base">Dr. Roberto Camargo</h4>
+                            <span class="text-xs text-amber-600 dark:text-amber-400 font-semibold block">Agronegócio & Região</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 italic mb-4 leading-relaxed">
+                        "As perspectivas da safra agrícola na Região Central do RS e os impactos na economia de Santiago."
+                    </p>
+                    <a href="#localizacao" class="text-xs font-bold text-slate-900 dark:text-white group-hover:text-amber-500 transition-colors flex items-center gap-1">
+                        <span>Ler Artigos da Coluna</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Columnist 3 -->
+                <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-amber-500/50 transition-all group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80" alt="Profª. Carla Fontoura" class="w-14 h-14 rounded-full object-cover border-2 border-amber-500">
+                        <div>
+                            <h4 class="font-bold text-slate-900 dark:text-white text-base">Profª. Carla Fontoura</h4>
+                            <span class="text-xs text-amber-600 dark:text-amber-400 font-semibold block">Educação & Sociedade</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 italic mb-4 leading-relaxed">
+                        "O papel da comunidade na formação dos jovens e a importância de iniciativas educacionais comunitárias."
+                    </p>
+                    <a href="#localizacao" class="text-xs font-bold text-slate-900 dark:text-white group-hover:text-amber-500 transition-colors flex items-center gap-1">
+                        <span>Ler Artigos da Coluna</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Call to Columnists Candidate -->
+            <div class="mt-10 text-center bg-amber-500/10 border border-amber-500/30 rounded-2xl p-6">
+                <p class="text-xs font-bold text-slate-900 dark:text-white">
+                    É especialista ou profissional em Santiago/Região e deseja escrever uma coluna no Blog do Nemitz? 
+                    <a href="https://wa.me/5555996340222?text=Ol%C3%A1%2C%20Rafael!%20Tenho%20interesse%20em%20ser%20colunista." target="_blank" class="text-amber-600 dark:text-amber-400 underline ml-1 font-extrabold">Fale conosco no WhatsApp</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: GALERIA DE FOTOS DE SANTIAGO E REGIÃO -->
+    <section id="galeria-fotos" class="py-20 bg-white dark:bg-slate-900 transition-colors border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-amber-600 dark:text-amber-400 text-xs font-extrabold uppercase tracking-widest block mb-1">
+                        Registros de Santiago & Região
+                    </span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">
+                        Galeria de Fotos dos Destaques Locais
+                    </h2>
+                </div>
+                <p class="text-xs text-slate-500 max-w-sm mt-2 md:mt-0">
+                    Cobertura fotográfica exclusiva dos momentos marcantes, formaturas, solenidades e eventos sociais da cidade.
+                </p>
+            </div>
+
+            <!-- Photo Grid Showcase -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Photo 1: Official Cerimonial -->
+                <div class="rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 group shadow-md relative">
+                    <img src="cerimonial2.jpg" alt="Formatura Terceirão Thomas Fortes" class="w-full h-64 object-cover object-top filter brightness-105 contrast-105 group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 image-overlay-subtle"></div>
+                    <div class="absolute bottom-4 left-4 right-4 text-white">
+                        <span class="bg-amber-500 text-slate-950 text-[10px] font-black uppercase px-2 py-0.5 rounded tracking-wider block mb-1 w-max shadow">
+                            Cerimonial Oficial
+                        </span>
+                        <h4 class="font-serif font-bold text-base text-glow">Solenidade de Formatura Terceirão</h4>
+                        <p class="text-xs text-slate-200 text-glow">Escola Estadual Thomas Fortes - Santiago</p>
+                    </div>
+                </div>
+
+                <!-- Photo 2: Community Events -->
+                <div class="rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 group shadow-md relative">
+                    <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80" alt="Eventos da Comunidade de Santiago" class="w-full h-64 object-cover filter brightness-105 contrast-105 group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 image-overlay-subtle"></div>
+                    <div class="absolute bottom-4 left-4 right-4 text-white">
+                        <span class="bg-indigo-500 text-white text-[10px] font-black uppercase px-2 py-0.5 rounded tracking-wider block mb-1 w-max shadow">
+                            Feiras & Encontros
+                        </span>
+                        <h4 class="font-serif font-bold text-base text-glow">Encontro Empresarial e Social</h4>
+                        <p class="text-xs text-slate-200 text-glow">Destaques do Comércio de Santiago - RS</p>
+                    </div>
+                </div>
+
+                <!-- Photo 3: Local News & Police Coverage -->
+                <div class="rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 group shadow-md relative">
+                    <img src="https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&w=800&q=80" alt="Plantão de Notícias de Santiago" class="w-full h-64 object-cover filter brightness-105 contrast-105 group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 image-overlay-subtle"></div>
+                    <div class="absolute bottom-4 left-4 right-4 text-white">
+                        <span class="bg-red-600 text-white text-[10px] font-black uppercase px-2 py-0.5 rounded tracking-wider block mb-1 w-max shadow">
+                            Plantão Policial
+                        </span>
+                        <h4 class="font-serif font-bold text-base text-glow">Acompanhamento e Segurança Pública</h4>
+                        <p class="text-xs text-slate-200 text-glow">Informação imediata com apuração no local</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES & MEDIA KIT SECTION -->
+    <section id="servicos" class="py-20 bg-slate-50 dark:bg-slate-950 transition-colors border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-amber-600 dark:text-amber-400 text-xs font-extrabold uppercase tracking-widest block mb-2">
+                    Mídia Kit Comercial
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-3">
+                    Soluções de Anúncio e Divulgação no Blog
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400 text-sm">
+                    Divulgue seu produto, serviço ou empresa no canal de comunicação mais lido do município.
+                </p>
+            </div>
+
+            <!-- Cards Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Service 1 -->
+                <div id="servico-banner" class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 flex flex-col justify-between shadow-sm hover:border-amber-500 transition-all">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-lg text-slate-900 dark:text-white mb-2">Banners no Portal</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">
+                            Espaço fixo na capa e dentro das matérias do Blog do Nemitz.
+                        </p>
+                        <ul class="text-xs text-slate-700 dark:text-slate-300 space-y-2 mb-6">
+                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Topo da Capa</li>
+                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Sidebar & Notícias</li>
+                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Link Direto para Whats</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/5555996340222?text=Ol%C3%A1!%20Quero%20cotar%20Banners%20no%20Blog." target="_blank" class="w-full bg-slate-900 dark:bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-white font-bold py-2.5 rounded-xl text-xs text-center block transition-colors uppercase tracking-wider">
+                        Cotar Banner
+                    </a>
+                </div>
+
+                <!-- Service 2 -->
+                <div id="servico-redes" class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 flex flex-col justify-between shadow-sm hover:border-indigo-500 transition-all">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-500 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-lg text-slate-900 dark:text-white mb-2">Combos Sociais</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">
+                            Publicação no Feed e Stories no Instagram e Facebook oficiais.
+                        </p>
+                        <ul class="text-xs text-slate-700 dark:text-slate-300 space-y-2 mb-6">
+                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>+100 Mil Seguidores</li>
+                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Marcação de Perfis</li>
+                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Alta Taxa de Engajamento</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/5555996340222?text=Ol%C3%A1!%20Quero%20informA%C3%A7%C3%B5es%20de%20Combos%20nas%20Redes." target="_blank" class="w-full bg-slate-900 dark:bg-slate-800 hover:bg-indigo-600 text-white font-bold py-2.5 rounded-xl text-xs text-center block transition-colors uppercase tracking-wider">
+                        Solicitar Combo
+                    </a>
+                </div>
+
+                <!-- Service 3 -->
+                <div id="servico-cobertura" class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 flex flex-col justify-between shadow-sm hover:border-red-500 transition-all">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-red-500/10 text-red-500 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-microphone"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-lg text-slate-900 dark:text-white mb-2">Cerimonial & Eventos</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">
+                            Apresentação presencial e cobertura fotográfica VIP de solenidades.
+                        </p>
+                        <ul class="text-xs text-slate-700 dark:text-slate-300 space-y-2 mb-6">
+                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Apresentador Profissional</li>
+                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Galeria no Portal</li>
+                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Acompanhamento Completo</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/5555996340222?text=Ol%C3%A1!%20Desejo%20contratar%20Cerimonial%20ou%20Cobertura." target="_blank" class="w-full bg-slate-900 dark:bg-slate-800 hover:bg-red-600 text-white font-bold py-2.5 rounded-xl text-xs text-center block transition-colors uppercase tracking-wider">
+                        Agendar Evento
+                    </a>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 flex flex-col justify-between shadow-sm hover:border-emerald-500 transition-all">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-newspaper"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-lg text-slate-900 dark:text-white mb-2">Publieditoriais</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">
+                            Matéria patrocinada especial destacando a história da sua empresa.
+                        </p>
+                        <ul class="text-xs text-slate-700 dark:text-slate-300 space-y-2 mb-6">
+                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Redação Jornalística</li>
+                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Fotos e Vídeos</li>
+                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Indexado no Google</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/5555996340222?text=Ol%C3%A1!%20Gostaria%20de%20publicar%20um%20Publieditorial." target="_blank" class="w-full bg-slate-900 dark:bg-slate-800 hover:bg-emerald-600 text-white font-bold py-2.5 rounded-xl text-xs text-center block transition-colors uppercase tracking-wider">
+                        Criar Matéria
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: UTILITIES (ANIMAIS DESAPARECIDOS, CLASSIFICADOS, NOTAS DE FALECIMENTO, SAÚDE) -->
+    <section id="utilitarios" class="py-20 bg-white dark:bg-slate-900 transition-colors border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-amber-600 dark:text-amber-400 text-xs font-extrabold uppercase tracking-widest block mb-2">
+                    Serviços Comunitários de Santiago
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-3">
+                    Utilidade Pública e Classificados
+                </h2>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                
+                <!-- Box 1: Animais Desaparecidos -->
+                <div class="rounded-2xl p-6 bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-serif font-bold text-lg text-slate-900 dark:text-white flex items-center gap-2">
+                            <i class="fa-solid fa-paw text-amber-500"></i> Animais Desaparecidos
+                        </h3>
+                        <a href="https://wa.me/5555996340222?text=Ol%C3%A1!%20Preciso%20divulgar%20um%20animal%20desaparecido." target="_blank" class="text-xs text-amber-600 dark:text-amber-400 font-bold hover:underline">
+                            + Divulgar Pet
+                        </a>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center gap-3">
+                            <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=150&q=80" alt="Cão Desaparecido Rex" class="w-14 h-14 rounded-lg object-cover">
+                            <div>
+                                <h4 class="font-bold text-xs text-slate-900 dark:text-white">Cão "Rex" (Poodle)</h4>
+                                <span class="text-[11px] text-slate-500 block">Visto no Bairro Centro</span>
+                                <span class="text-[10px] text-amber-500 font-bold">Contato: (55) 99999-0000</span>
+                            </div>
+                        </div>
+                        <div class="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center gap-3">
+                            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=150&q=80" alt="Gata Desaparecida Mia" class="w-14 h-14 rounded-lg object-cover">
+                            <div>
+                                <h4 class="font-bold text-xs text-slate-900 dark:text-white">Gata "Mia" (Siamês)</h4>
+                                <span class="text-[11px] text-slate-500 block">Visto no Bairro Zamperetti</span>
+                                <span class="text-[10px] text-amber-500 font-bold">Contato: (55) 98888-1111</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Box 2: Classificados Regionais -->
+                <div class="rounded-2xl p-6 bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-serif font-bold text-lg text-slate-900 dark:text-white flex items-center gap-2">
+                            <i class="fa-solid fa-tags text-indigo-500"></i> Classificados de Santiago
+                        </h3>
+                        <a href="https://wa.me/5555996340222?text=Ol%C3%A1!%20Quero%20anunciar%20nos%20classificados." target="_blank" class="text-xs text-indigo-600 dark:text-indigo-400 font-bold hover:underline">
+                            + Anunciar Item
+                        </a>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-800 flex justify-between items-center">
+                            <div>
+                                <span class="text-[10px] bg-indigo-500/10 text-indigo-500 font-bold px-2 py-0.5 rounded">Imóveis</span>
+                                <h4 class="font-bold text-xs text-slate-900 dark:text-white mt-1">Aluguel de Ponto Comercial no Centro</h4>
+                            </div>
+                            <span class="text-xs font-extrabold text-emerald-500">Santiago - RS</span>
+                        </div>
+                        <div class="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-800 flex justify-between items-center">
+                            <div>
+                                <span class="text-[10px] bg-indigo-500/10 text-indigo-500 font-bold px-2 py-0.5 rounded">Veículos</span>
+                                <h4 class="font-bold text-xs text-slate-900 dark:text-white mt-1">Venda de Camionete Seminova</h4>
+                            </div>
+                            <span class="text-xs font-extrabold text-emerald-500">Santiago - RS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Box 3: Notas de Falecimento -->
+                <div class="rounded-2xl p-6 bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-serif font-bold text-lg text-slate-900 dark:text-white flex items-center gap-2">
+                            <i class="fa-solid fa-ribbon text-slate-500"></i> Notas de Falecimento
+                        </h3>
+                        <span class="text-xs text-slate-400">Serviço Funerário Regional</span>
+                    </div>
+                    <div class="space-y-3 text-xs">
+                        <div class="bg-white dark:bg-slate-900 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800">
+                            <h4 class="font-bold text-slate-900 dark:text-white">Comunicado de Falecimento - Família Silva</h4>
+                            <p class="text-slate-500 text-[11px] mt-1">Atos de encomenda e sepultamento no Cemitério Municipal de Santiago.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Box 4: Saúde & Bem-Estar -->
+                <div class="rounded-2xl p-6 bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-serif font-bold text-lg text-slate-900 dark:text-white flex items-center gap-2">
+                            <i class="fa-solid fa-heart-pulse text-red-500"></i> Saúde & Bem-Estar
+                        </h3>
+                        <span class="text-xs text-red-500 font-bold">Informativos Médicos</span>
+                    </div>
+                    <div class="space-y-3 text-xs">
+                        <div class="bg-white dark:bg-slate-900 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800">
+                            <h4 class="font-bold text-slate-900 dark:text-white">Campanha de Vacinação em Santiago</h4>
+                            <p class="text-slate-500 text-[11px] mt-1">Confira os postos de saúde abertos no final de semana no município.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION & CONTACT SECTION (TOP & BOTTOM REQUIREMENT) -->
+    <section id="localizacao" class="py-20 bg-slate-100 dark:bg-slate-950 transition-colors border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12">
+                
+                <!-- Left Info Box -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div>
+                        <span class="text-amber-600 dark:text-amber-400 text-xs font-extrabold uppercase tracking-widest block mb-1">
+                            Fale Conosco
+                        </span>
+                        <h2 class="font-serif text-3xl font-bold text-slate-900 dark:text-white">
+                            Atendimento Comercial & Envio de Pautas
+                        </h2>
+                    </div>
+
+                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                        Tem uma sugestão de notícia, flagrante policial, comunicado ou quer divulgar sua empresa no Blog do Nemitz? Entre em contato imediato.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                            <div class="text-amber-500 text-xl mt-1"><i class="fa-solid fa-location-dot"></i></div>
+                            <div>
+                                <h4 class="font-bold text-sm text-slate-900 dark:text-white">Cidade e Sede</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">Santiago - Rio Grande do Sul (Atendimento Regional)</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                            <div class="text-amber-500 text-xl mt-1"><i class="fa-brands fa-whatsapp"></i></div>
+                            <div>
+                                <h4 class="font-bold text-sm text-slate-900 dark:text-white">WhatsApp Oficial</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">(55) 99634-0222 (Plantão e Vendas)</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                            <div class="text-amber-500 text-xl mt-1"><i class="fa-solid fa-envelope"></i></div>
+                            <div>
+                                <h4 class="font-bold text-sm text-slate-900 dark:text-white">E-mail Direto</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">rafaelnemitz@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Form Box -->
+                <div class="lg:col-span-7">
+                    <div class="rounded-2xl bg-white dark:bg-slate-900 p-8 border border-slate-200 dark:border-slate-800 shadow-sm">
+                        <h3 class="font-serif text-xl font-bold text-slate-900 dark:text-white mb-2">
+                            Envie Sua Mensagem Diretamente para Rafael Nemitz
+                        </h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mb-6">
+                            Preencha o formulário abaixo para enviar propostas comerciais ou notícias.
+                        </p>
+
+                        <form id="contactForm" class="space-y-4">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Seu Nome</label>
+                                    <input type="text" required placeholder="Ex: Maria Rodrigues" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Telefone / WhatsApp</label>
+                                    <input type="tel" required placeholder="(55) 99634-0222" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Assunto</label>
+                                <select class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+                                    <option>Orçamento de Anúncio / Mídia Kit</option>
+                                    <option>Envio de Pauta / Sugestão de Notícia</option>
+                                    <option>Contratação de Cerimonial / Apresentação</option>
+                                    <option>Divulgação de Animal Desaparecido</option>
+                                    <option>Outros Assuntos</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Mensagem</label>
+                                <textarea rows="4" required placeholder="Escreva os detalhes da sua mensagem..." class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-black py-3.5 rounded-xl text-xs uppercase tracking-wider transition-colors shadow-md">
+                                Enviar Mensagem
+                            </button>
+                        </form>
+                        
+                        <div id="formSuccessNotice" class="hidden mt-4 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs text-center font-bold">
+                            <i class="fa-solid fa-circle-check mr-1"></i> Mensagem enviada com sucesso! Entraremos em contato.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER WITH SOCIAL LINKS AND CREDITS -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                
+                <div class="md:col-span-2 space-y-4">
+                    <a href="#" class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-lg bg-amber-500 text-slate-950 font-serif font-black text-xl flex items-center justify-center">
+                            RN
+                        </div>
+                        <span class="font-serif text-lg font-bold text-white tracking-tight">
+                            BLOG RAFAEL NEMITZ
+                        </span>
+                    </a>
+                    <p class="text-slate-400 max-w-sm leading-relaxed">
+                        Informação em primeira mão há 16 anos. O canal de jornalismo e anúncios de maior audiência em Santiago e Região Central do RS.
+                    </p>
+                    
+                    <!-- Official Footer Social Links -->
+                    <div class="flex items-center space-x-4 pt-2">
+                        <a href="https://www.facebook.com/BlogRafaelNemitz" target="_blank" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-amber-400 hover:border-amber-500/50 transition-colors">
+                            <i class="fa-brands fa-facebook text-base"></i>
+                        </a>
+                        <a href="https://www.instagram.com/rafaelnemitz" target="_blank" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-amber-400 hover:border-amber-500/50 transition-colors">
+                            <i class="fa-brands fa-instagram text-base"></i>
+                        </a>
+                        <a href="https://www.youtube.com/user/rafanemitz" target="_blank" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-amber-400 hover:border-amber-500/50 transition-colors">
+                            <i class="fa-brands fa-youtube text-base"></i>
+                        </a>
+                        <a href="https://www.youtube.com/user/rafanemitz" target="_blank" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-amber-400 hover:border-amber-500/50 transition-colors">
+                            <i class="fa-brands fa-x-twitter text-base"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white uppercase tracking-wider mb-4">Navegação</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="#destaques" class="hover:text-amber-400 transition-colors">Destaques</a></li>
+                        <li><a href="#sobre" class="hover:text-amber-400 transition-colors">Sobre Rafael Nemitz</a></li>
+                        <li><a href="#colunistas" class="hover:text-amber-400 transition-colors">Colunistas</a></li>
+                        <li><a href="#galeria-fotos" class="hover:text-amber-400 transition-colors">Galeria de Fotos</a></li>
+                        <li><a href="#servicos" class="hover:text-amber-400 transition-colors">Mídia Kit</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white uppercase tracking-wider mb-4">Contato & Plantão</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="https://wa.me/5555996340222" target="_blank" class="hover:text-amber-400 transition-colors">WhatsApp: (55) 99634-0222</a></li>
+                        <li><a href="#localizacao" class="hover:text-amber-400 transition-colors">Envio de Pauta</a></li>
+                        <li><span class="text-slate-500">Santiago - RS</span></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-slate-900 text-center md:flex md:justify-between text-slate-500">
+                <p>© 2026 Blog Rafael Nemitz - Informação em Primeira Mão. Todos os direitos reservados.</p>
+                <p class="mt-2 md:mt-0">Design Impeccable & Taste-Skill.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP BUTTON WITH DIRECT NUMBER -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="https://wa.me/5555996340222?text=Ol%C3%A1%2C%20Rafael!%20Vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20voc%C3%AA." target="_blank" class="w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white shadow-2xl shadow-emerald-500/40 flex items-center justify-center text-2xl transition-all hover:scale-110" title="Falar com Rafael Nemitz no WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Theme Toggle
+        const themeToggleBtn = document.getElementById('themeToggle');
+        themeToggleBtn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+        });
+
+        // Mobile Nav Drawer
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Carousel Slider
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+        let currentSlide = 0;
+        let carouselInterval;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.classList.remove('opacity-0', 'pointer-events-none', 'z-0');
+                    slide.classList.add('opacity-100', 'z-10');
+                } else {
+                    slide.classList.remove('opacity-100', 'z-10');
+                    slide.classList.add('opacity-0', 'pointer-events-none', 'z-0');
+                }
+            });
+
+            dots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.remove('bg-slate-600');
+                    dot.classList.add('bg-amber-500');
+                } else {
+                    dot.classList.remove('bg-amber-500');
+                    dot.classList.add('bg-slate-600');
+                }
+            });
+
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            let next = (currentSlide + 1) % slides.length;
+            showSlide(next);
+        }
+
+        function prevSlide() {
+            let prev = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(prev);
+        }
+
+        document.getElementById('carouselNext').addEventListener('click', () => {
+            nextSlide();
+            resetTimer();
+        });
+
+        document.getElementById('carouselPrev').addEventListener('click', () => {
+            prevSlide();
+            resetTimer();
+        });
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', (e) => {
+                const index = parseInt(e.target.getAttribute('data-slide'));
+                showSlide(index);
+                resetTimer();
+            });
+        });
+
+        function startTimer() {
+            carouselInterval = setInterval(nextSlide, 5000);
+        }
+
+        function resetTimer() {
+            clearInterval(carouselInterval);
+            startTimer();
+        }
+
+        startTimer();
+
+        // Contact Form Feedback
+        const contactForm = document.getElementById('contactForm');
+        const formSuccessNotice = document.getElementById('formSuccessNotice');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            formSuccessNotice.classList.remove('hidden');
+            contactForm.reset();
+            setTimeout(() => {
+                formSuccessNotice.classList.add('hidden');
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
