@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rafael Nemitz | Blog, Jornalismo & Mídia Kit Regional</title>
+    <title>Rafael Nemitz | Blog, Jornalismo, Notícias & Mídia Kit Regional</title>
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -54,7 +54,6 @@
         .carousel-slide {
             transition: opacity 0.7s ease-in-out;
         }
-        /* Crisp & Subtle Overlay (Keeps photos bright & clear) */
         .image-overlay-subtle {
             background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.75) 100%);
         }
@@ -77,11 +76,11 @@
                     <i class="fa-solid fa-circle text-[8px] mr-1"></i> NOTÍCIAS EM TEMPO REAL
                 </span>
                 <span class="truncate max-w-xl font-medium text-slate-300 hidden sm:inline">
-                    Santiago & Região Central - RS | Fale com a Redação: (55) 99634-0222
+                    Santiago & Região Central - RS | Redação: (55) 99634-0222
                 </span>
             </div>
 
-            <!-- Requested Social Links -->
+            <!-- Social Links -->
             <div class="flex items-center space-x-5 text-slate-300 font-medium">
                 <a href="https://www.facebook.com/BlogRafaelNemitz" target="_blank" class="hover:text-amber-400 transition-colors flex items-center gap-1.5" title="Facebook Blog Rafael Nemitz">
                     <i class="fa-brands fa-facebook text-sm text-blue-500"></i> <span class="hidden sm:inline">Facebook</span>
@@ -111,8 +110,12 @@
                 
                 <!-- Brand Logo & Badge -->
                 <a href="#" class="flex items-center gap-3 group">
-                    <div class="bg-white p-1.5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-md group-hover:scale-105 transition-transform flex items-center justify-center">
-                        <img src="logonemitz.jpg" alt="Logo Oficial Rafael Nemitz Eventos e Mídia" class="h-11 sm:h-13 w-auto object-contain">
+                    <div class="bg-white p-1.5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-md group-hover:scale-105 transition-transform flex items-center justify-center min-w-[50px] min-h-[50px]">
+                        <!-- Primary Logo Image (logonemitz_4.jpg) + Fallback Loader -->
+                        <div id="logoContainer" class="flex items-center justify-center">
+                            <img id="brandLogoImg" src="logonemitz_4.jpg" alt="Logo Oficial Rafael Nemitz Eventos e Mídia" class="h-11 sm:h-13 w-auto object-contain" 
+                                 onerror="handleLogoError(this)">
+                        </div>
                     </div>
                     <div>
                         <span class="font-serif text-lg sm:text-xl font-black tracking-tight text-slate-900 dark:text-white block leading-none">
@@ -124,12 +127,13 @@
                     </div>
                 </a>
 
-                <!-- Desktop Nav Links -->
-                <nav class="hidden xl:flex items-center space-x-5 text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
+                <!-- Desktop Nav Links INCLUDING NOTÍCIAS -->
+                <nav class="hidden xl:flex items-center space-x-4 text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
+                    <a href="#noticias" class="text-red-600 dark:text-red-400 hover:text-amber-600 transition-colors flex items-center gap-1"><i class="fa-solid fa-bolt"></i> Notícias</a>
                     <a href="#destaques" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">Destaques</a>
                     <a href="#sobre" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">Sobre</a>
                     <a href="#colunistas" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">Colunistas</a>
-                    <a href="#galeria-fotos" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">Galeria de Fotos</a>
+                    <a href="#galeria-fotos" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">Galeria</a>
                     <a href="#servicos" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">Mídia Kit</a>
                     <a href="#utilitarios" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">Utilidades</a>
                     <a href="#localizacao" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors bg-amber-500/10 px-3 py-1.5 rounded-lg border border-amber-500/30 text-amber-600 dark:text-amber-400">Contato</a>
@@ -156,6 +160,7 @@
 
         <!-- Mobile Nav Menu -->
         <div id="mobileMenu" class="hidden xl:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-6 py-6 space-y-3 text-sm font-bold uppercase">
+            <a href="#noticias" class="mobile-nav-link block py-2 border-b border-slate-100 dark:border-slate-800 text-red-500"><i class="fa-solid fa-bolt mr-1"></i> Notícias em Tempo Real</a>
             <a href="#destaques" class="mobile-nav-link block py-2 border-b border-slate-100 dark:border-slate-800">Destaques</a>
             <a href="#sobre" class="mobile-nav-link block py-2 border-b border-slate-100 dark:border-slate-800">Sobre Rafael Nemitz</a>
             <a href="#colunistas" class="mobile-nav-link block py-2 border-b border-slate-100 dark:border-slate-800">Colunistas Parceiros</a>
@@ -173,7 +178,6 @@
     <section class="bg-slate-900 py-3 sm:py-5 border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="rounded-2xl overflow-hidden shadow-2xl border-2 border-amber-500/30 bg-white relative group w-full h-48 sm:h-60 md:h-72">
-                <!-- High Vibrancy, Sharp Image Filter filling the full container -->
                 <img src="nemitz4.jpg" alt="Banner Oficial Blog Rafael Nemitz - Mais de 100 mil seguidores" class="w-full h-full object-cover object-center filter brightness-105 contrast-105 hover:scale-[1.01] transition-transform duration-500">
             </div>
         </div>
@@ -220,23 +224,21 @@
                             <i class="fa-brands fa-whatsapp text-xl"></i>
                             <span>Anunciar no Blog Nemitz</span>
                         </a>
-                        <a href="#localizacao" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-100 border border-slate-600 font-bold px-6 py-4 rounded-xl text-sm transition-all shadow-md">
-                            <i class="fa-solid fa-paper-plane text-xs text-amber-400"></i>
-                            <span>Enviar Notícia ou Pauta</span>
+                        <a href="#noticias" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-4 rounded-xl text-sm transition-all shadow-md">
+                            <i class="fa-solid fa-newspaper text-xs"></i>
+                            <span>Ler Notícias do Dia</span>
                         </a>
                     </div>
                 </div>
 
-                <!-- Right Column Photo Frame (Full Cover Frame) -->
+                <!-- Right Column Photo Frame -->
                 <div class="lg:col-span-5 relative">
                     <div class="relative mx-auto max-w-md lg:max-w-none">
                         <div class="absolute -inset-1 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-2xl blur-lg opacity-40 animate-pulse"></div>
                         
                         <div class="relative rounded-2xl overflow-hidden bg-slate-900 border-2 border-amber-400/50 shadow-2xl group h-80 sm:h-96 w-full">
-                            <!-- Crisp, Bright Image spanning full height and width -->
                             <img src="cerimonial2.jpg" alt="Rafael Nemitz em Evento de Cerimonial em Santiago" class="w-full h-full object-cover object-top filter brightness-105 contrast-105 group-hover:scale-105 transition-transform duration-700">
                             
-                            <!-- Subtle bottom gradient -->
                             <div class="absolute inset-0 image-overlay-subtle"></div>
                             
                             <div class="absolute bottom-4 left-4 right-4 text-white">
@@ -251,6 +253,157 @@
                 </div>
 
             </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: REAL-TIME NEWS FEED & ARCHIVE SEARCH -->
+    <section id="noticias" class="py-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-8 gap-4">
+                <div>
+                    <span class="text-red-600 dark:text-red-400 text-xs font-extrabold uppercase tracking-widest flex items-center gap-2 mb-1">
+                        <span class="w-2.5 h-2.5 rounded-full bg-red-600 animate-ping inline-block"></span>
+                        Jornalismo Agil & Transparente
+                    </span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">
+                        Últimas Notícias e Acervo de Matérias
+                    </h2>
+                </div>
+
+                <!-- News Search Bar -->
+                <div class="w-full lg:w-96">
+                    <div class="relative">
+                        <input type="text" id="newsSearchInput" placeholder="Buscar no acervo de notícias..." class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-xs focus:outline-none focus:ring-2 focus:ring-amber-500 shadow-sm">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-400 text-sm"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category Filter Pills -->
+            <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-8 text-xs font-bold uppercase scrollbar-none">
+                <button class="news-filter-btn active bg-slate-900 dark:bg-amber-500 text-white dark:text-slate-950 px-4 py-2 rounded-xl border border-transparent transition-all shadow-sm whitespace-nowrap" data-category="todos">
+                    Todas as Notícias
+                </button>
+                <button class="news-filter-btn bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 px-4 py-2 rounded-xl transition-all whitespace-nowrap" data-category="policial">
+                    <i class="fa-solid fa-shield-halved text-red-500 mr-1"></i> Policial
+                </button>
+                <button class="news-filter-btn bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 px-4 py-2 rounded-xl transition-all whitespace-nowrap" data-category="santiago">
+                    <i class="fa-solid fa-location-dot text-amber-500 mr-1"></i> Santiago
+                </button>
+                <button class="news-filter-btn bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 px-4 py-2 rounded-xl transition-all whitespace-nowrap" data-category="politica">
+                    <i class="fa-solid fa-landmark text-indigo-500 mr-1"></i> Política
+                </button>
+                <button class="news-filter-btn bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 px-4 py-2 rounded-xl transition-all whitespace-nowrap" data-category="geral">
+                    <i class="fa-solid fa-newspaper text-emerald-500 mr-1"></i> Geral & Região
+                </button>
+            </div>
+
+            <!-- News Cards Grid -->
+            <div id="newsGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- News Article 1 -->
+                <article class="news-card bg-slate-50 dark:bg-slate-800/80 rounded-2xl border border-slate-200 dark:border-slate-700/80 overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between" data-category="policial">
+                    <div>
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&w=600&q=80" alt="Operação Policial em Santiago" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 left-3 bg-red-600 text-white font-extrabold text-[10px] uppercase px-2.5 py-1 rounded shadow">
+                                Policial
+                            </span>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 mb-2 font-medium">
+                                <span><i class="fa-regular fa-clock mr-1"></i> Há 2 horas</span>
+                                <span><i class="fa-solid fa-eye mr-1"></i> 3.420 acessos</span>
+                            </div>
+                            <h3 class="font-serif font-bold text-slate-900 dark:text-white text-base sm:text-lg mb-2 leading-snug hover:text-amber-500 transition-colors cursor-pointer read-news-btn" data-news-id="1">
+                                Brigada Militar realiza operação preventiva nos bairros de Santiago
+                            </h3>
+                            <p class="text-slate-600 dark:text-slate-300 text-xs line-clamp-3 leading-relaxed mb-4">
+                                Ações reforçam o patrulhamento em pontos estratégicos do município com foco na segurança comunitária e prevenção a furtos.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-5 pb-5 pt-0 flex items-center justify-between border-t border-slate-200/60 dark:border-slate-700/60 mt-auto">
+                        <span class="text-[11px] text-slate-500 font-semibold">Por: Redação Nemitz</span>
+                        <button class="text-xs font-bold text-amber-600 dark:text-amber-400 hover:underline flex items-center gap-1 read-news-btn" data-news-id="1">
+                            Ler matéria completa <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- News Article 2 -->
+                <article class="news-card bg-slate-50 dark:bg-slate-800/80 rounded-2xl border border-slate-200 dark:border-slate-700/80 overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between" data-category="santiago">
+                    <div>
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="cerimonial2.jpg" alt="Avanço nas obras públicas de Santiago" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 left-3 bg-amber-500 text-slate-950 font-extrabold text-[10px] uppercase px-2.5 py-1 rounded shadow">
+                                Santiago
+                            </span>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 mb-2 font-medium">
+                                <span><i class="fa-regular fa-clock mr-1"></i> Hoje, 09:30</span>
+                                <span><i class="fa-solid fa-eye mr-1"></i> 1.890 acessos</span>
+                            </div>
+                            <h3 class="font-serif font-bold text-slate-900 dark:text-white text-base sm:text-lg mb-2 leading-snug hover:text-amber-500 transition-colors cursor-pointer read-news-btn" data-news-id="2">
+                                Prefeitura anuncia melhorias na infraestrutura urbana do Centro
+                            </h3>
+                            <p class="text-slate-600 dark:text-slate-300 text-xs line-clamp-3 leading-relaxed mb-4">
+                                Novas sinalizações de trânsito e revitalização de espaços públicos prometem garantir mais mobilidade para os moradores.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-5 pb-5 pt-0 flex items-center justify-between border-t border-slate-200/60 dark:border-slate-700/60 mt-auto">
+                        <span class="text-[11px] text-slate-500 font-semibold">Por: Rafael Nemitz</span>
+                        <button class="text-xs font-bold text-amber-600 dark:text-amber-400 hover:underline flex items-center gap-1 read-news-btn" data-news-id="2">
+                            Ler matéria completa <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- News Article 3 -->
+                <article class="news-card bg-slate-50 dark:bg-slate-800/80 rounded-2xl border border-slate-200 dark:border-slate-700/80 overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between" data-category="politica">
+                    <div>
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="nemitz3.jpg" alt="Debate e Sessão na Câmara" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 left-3 bg-indigo-600 text-white font-extrabold text-[10px] uppercase px-2.5 py-1 rounded shadow">
+                                Política
+                            </span>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 mb-2 font-medium">
+                                <span><i class="fa-regular fa-clock mr-1"></i> Ontem</span>
+                                <span><i class="fa-solid fa-eye mr-1"></i> 2.150 acessos</span>
+                            </div>
+                            <h3 class="font-serif font-bold text-slate-900 dark:text-white text-base sm:text-lg mb-2 leading-snug hover:text-amber-500 transition-colors cursor-pointer read-news-btn" data-news-id="3">
+                                Câmara de Vereadores vota projetos orçamentários da Região Central
+                            </h3>
+                            <p class="text-slate-600 dark:text-slate-300 text-xs line-clamp-3 leading-relaxed mb-4">
+                                Sessão plenária destacou incentivos ao agronegócio local e apoio a microempresários da região de Santiago.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-5 pb-5 pt-0 flex items-center justify-between border-t border-slate-200/60 dark:border-slate-700/60 mt-auto">
+                        <span class="text-[11px] text-slate-500 font-semibold">Por: Redação Nemitz</span>
+                        <button class="text-xs font-bold text-amber-600 dark:text-amber-400 hover:underline flex items-center gap-1 read-news-btn" data-news-id="3">
+                            Ler matéria completa <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Callout to Archive -->
+            <div class="mt-12 text-center bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6">
+                <p class="text-xs font-bold text-slate-700 dark:text-slate-300 mb-2">
+                    Procurando por matérias mais antigas ou arquivos de anos anteriores?
+                </p>
+                <a href="https://wa.me/5555996340222?text=Ol%C3%A1%2C%20Rafael!%20Gostaria%20de%20solicitar%20uma%20mat%C3%A9ria%20do%20acervo." target="_blank" class="inline-flex items-center gap-2 bg-slate-900 dark:bg-amber-500 text-white dark:text-slate-950 font-extrabold px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider hover:opacity-90 transition-opacity">
+                    <i class="fa-solid fa-box-archive"></i> Solicitar Pesquisa no Acervo Histórico
+                </a>
+            </div>
+
         </div>
     </section>
 
@@ -786,7 +939,7 @@
         </div>
     </section>
 
-    <!-- LOCATION & CONTACT SECTION (TOP & BOTTOM REQUIREMENT) -->
+    <!-- LOCATION & CONTACT SECTION -->
     <section id="localizacao" class="py-20 bg-slate-100 dark:bg-slate-950 transition-colors border-t border-slate-200 dark:border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-12 gap-12">
@@ -904,7 +1057,6 @@
                         Informação em primeira mão há 16 anos. O canal de jornalismo e anúncios de maior audiência em Santiago e Região Central do RS.
                     </p>
                     
-                    <!-- Official Footer Social Links -->
                     <div class="flex items-center space-x-4 pt-2">
                         <a href="https://www.facebook.com/BlogRafaelNemitz" target="_blank" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-amber-400 hover:border-amber-500/50 transition-colors">
                             <i class="fa-brands fa-facebook text-base"></i>
@@ -924,6 +1076,7 @@
                 <div>
                     <h4 class="font-bold text-white uppercase tracking-wider mb-4">Navegação</h4>
                     <ul class="space-y-2.5">
+                        <li><a href="#noticias" class="text-red-400 hover:text-amber-400 transition-colors font-bold">Notícias do Dia</a></li>
                         <li><a href="#destaques" class="hover:text-amber-400 transition-colors">Destaques</a></li>
                         <li><a href="#sobre" class="hover:text-amber-400 transition-colors">Sobre Rafael Nemitz</a></li>
                         <li><a href="#colunistas" class="hover:text-amber-400 transition-colors">Colunistas</a></li>
@@ -950,7 +1103,19 @@
         </div>
     </footer>
 
-    <!-- FLOATING WHATSAPP BUTTON WITH DIRECT NUMBER -->
+    <!-- INTERACTIVE ARTICLE MODAL POPUP -->
+    <div id="newsModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative p-6 sm:p-8">
+            <button id="closeNewsModal" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-300 flex items-center justify-center hover:bg-red-500 hover:text-white transition-colors">
+                <i class="fa-solid fa-xmark text-base"></i>
+            </button>
+            <div id="newsModalContent">
+                <!-- Dynamic Content Injected Here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
     <div class="fixed bottom-6 right-6 z-50">
         <a href="https://wa.me/5555996340222?text=Ol%C3%A1%2C%20Rafael!%20Vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20voc%C3%AA." target="_blank" class="w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white shadow-2xl shadow-emerald-500/40 flex items-center justify-center text-2xl transition-all hover:scale-110" title="Falar com Rafael Nemitz no WhatsApp">
             <i class="fa-brands fa-whatsapp"></i>
@@ -959,6 +1124,27 @@
 
     <!-- SCRIPTS -->
     <script>
+        // Logo Loader Fallback Mechanism for logonemitz_4.jpg
+        function handleLogoError(img) {
+            const sources = ['logonemitz_4.jpg', 'logonemitz_3.jpg', 'logonemitz_2.jpg', 'logonemitz.jpg', 'logonemitz.png'];
+            let attempt = parseInt(img.getAttribute('data-attempt') || '0');
+            
+            if (attempt < sources.length) {
+                img.setAttribute('data-attempt', attempt + 1);
+                img.src = sources[attempt];
+            } else {
+                // If no local image matches, inject clean responsive SVG emblem
+                const container = document.getElementById('logoContainer');
+                if (container) {
+                    container.innerHTML = `
+                        <div class="w-11 h-11 bg-slate-900 dark:bg-amber-500 text-amber-400 dark:text-slate-950 font-serif font-black text-xl rounded-lg flex items-center justify-center shadow">
+                            RN
+                        </div>
+                    `;
+                }
+            }
+        }
+
         // Theme Toggle
         const themeToggleBtn = document.getElementById('themeToggle');
         themeToggleBtn.addEventListener('click', () => {
@@ -1046,6 +1232,128 @@
         }
 
         startTimer();
+
+        // NEWS FILTERING & SEARCH LOGIC
+        const newsFilterBtns = document.querySelectorAll('.news-filter-btn');
+        const newsCards = document.querySelectorAll('.news-card');
+        const newsSearchInput = document.getElementById('newsSearchInput');
+
+        newsFilterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                newsFilterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-slate-900', 'dark:bg-amber-500', 'text-white', 'dark:text-slate-950');
+                    b.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+                });
+                btn.classList.add('active', 'bg-slate-900', 'dark:bg-amber-500', 'text-white', 'dark:text-slate-950');
+                btn.classList.remove('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+
+                const cat = btn.getAttribute('data-category');
+                filterNews(cat, newsSearchInput.value.toLowerCase());
+            });
+        });
+
+        newsSearchInput.addEventListener('input', (e) => {
+            const activeCategory = document.querySelector('.news-filter-btn.active').getAttribute('data-category');
+            filterNews(activeCategory, e.target.value.toLowerCase());
+        });
+
+        function filterNews(category, searchTerm) {
+            newsCards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                const cardText = card.textContent.toLowerCase();
+
+                const matchesCat = (category === 'todos' || cardCat === category);
+                const matchesSearch = cardText.includes(searchTerm);
+
+                if (matchesCat && matchesSearch) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // NEWS MODAL POPUP
+        const newsModal = document.getElementById('newsModal');
+        const newsModalContent = document.getElementById('newsModalContent');
+        const closeNewsModal = document.getElementById('closeNewsModal');
+
+        const newsDatabase = {
+            "1": {
+                title: "Brigada Militar realiza operação preventiva nos bairros de Santiago",
+                date: "Hoje, 14:15 • Santiago - RS",
+                category: "Policial",
+                author: "Redação Blog Nemitz",
+                image: "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&w=800&q=80",
+                text: `<p class="mb-4">A Brigada Militar deflagrou na tarde desta semana uma série de ações ostensivas e de fiscalização em diversos bairros do município de Santiago.</p>
+                       <p class="mb-4">O objetivo principal da operação é intensificar a presença policial em locais com grande fluxo de pessoas, prevenir pequenos furtos e garantir a tranquilidade dos comerciantes e moradores locais.</p>
+                       <p>De acordo com o comando local, o patrulhamento ostensivo prosseguirá durante os finais de semana na área urbana e rural da Região Central do RS.</p>`
+            },
+            "2": {
+                title: "Prefeitura anuncia melhorias na infraestrutura urbana do Centro",
+                date: "Hoje, 09:30 • Santiago - RS",
+                category: "Santiago",
+                author: "Rafael Nemitz",
+                image: "cerimonial2.jpg",
+                text: `<p class="mb-4">Em coletiva concedida à imprensa local, foram detalhados os novos investimentos em pavimentação, iluminação pública em LED e revitalização das calçadas do Centro Comercial de Santiago.</p>
+                       <p class="mb-4">As obras têm previsão de início imediato e visam proporcionar maior segurança aos pedestres e valorizar as empresas locais.</p>
+                       <p>Rafael Nemitz acompanhou a solenidade de apresentação e trará novas atualizações nas próximas edições do portal.</p>`
+            },
+            "3": {
+                title: "Câmara de Vereadores vota projetos orçamentários da Região Central",
+                date: "Ontem, 18:40 • Santiago - RS",
+                category: "Política",
+                author: "Redação Blog Nemitz",
+                image: "nemitz3.jpg",
+                text: `<p class="mb-4">Os parlamentares do município votaram e aprovaram importantes diretrizes orçamentárias voltadas para a saúde pública, estradas rurais e incentivo aos produtores agrícolas de Santiago.</p>
+                       <p class="mb-4">As medidas foram celebradas por representantes do comércio e de entidades comunitárias que acompanharam os debates na Casa Legislativa.</p>`
+            }
+        };
+
+        document.querySelectorAll('.read-news-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const newsId = btn.getAttribute('data-news-id');
+                const article = newsDatabase[newsId];
+
+                if (article) {
+                    newsModalContent.innerHTML = `
+                        <div class="mb-3">
+                            <span class="bg-red-600 text-white font-extrabold text-[10px] uppercase px-2.5 py-1 rounded">
+                                ${article.category}
+                            </span>
+                        </div>
+                        <h2 class="font-serif font-bold text-2xl text-slate-900 dark:text-white mb-2 leading-tight">
+                            ${article.title}
+                        </h2>
+                        <div class="text-xs text-slate-500 dark:text-slate-400 mb-4 flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+                            <span><i class="fa-solid fa-user mr-1"></i> ${article.author}</span>
+                            <span><i class="fa-regular fa-clock mr-1"></i> ${article.date}</span>
+                        </div>
+                        <img src="${article.image}" alt="${article.title}" class="w-full h-64 object-cover rounded-xl mb-4">
+                        <div class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-sans space-y-3">
+                            ${article.text}
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3">
+                            <span class="text-xs text-slate-500 font-semibold">Compartilhe essa notícia nas redes</span>
+                            <a href="https://wa.me/5555996340222?text=Ol%C3%A1%2C%20vi%20essa%20not%C3%ADcia%20no%20site%3A%20${encodeURIComponent(article.title)}" target="_blank" class="bg-emerald-600 text-white font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-sm"></i> Enviar Pauta / Comentar
+                            </a>
+                        </div>
+                    `;
+                    newsModal.classList.remove('hidden');
+                }
+            });
+        });
+
+        closeNewsModal.addEventListener('click', () => {
+            newsModal.classList.add('hidden');
+        });
+
+        newsModal.addEventListener('click', (e) => {
+            if (e.target === newsModal) {
+                newsModal.classList.add('hidden');
+            }
+        });
 
         // Contact Form Feedback
         const contactForm = document.getElementById('contactForm');
